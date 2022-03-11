@@ -2,12 +2,10 @@
 echo 'Product';
 require_once 'include.php';
 
-var_dump($_GET['id']);
 $sql = 'SELECT * FROM `product` WHERE id=' . $_GET['id'];
 $product = $connection
     ->query($sql)
     ->fetch(PDO::FETCH_ASSOC);
-var_dump($product);
 ?>
 <?php
 require_once 'template_head.php';
