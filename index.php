@@ -51,3 +51,7 @@ require_once 'template_head.php';
 </table>
 </body>
 </html>
+
+<?php
+require_once 'product-list.php';
+?>
