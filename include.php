@@ -9,6 +9,3 @@ try {
     var_dump($e);
     die;
 }
-
-?>
-

@@ -1,12 +1,21 @@
 <?php
-/**
- * Created by iKNSA.
- * User: Khalid Sookia <khalidsookia@gmail.com>
- * Date: 11/03/2022
- * Time: 10:53
- */
+//require_once 'include.php';
+//if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
+//    $deleteUser = $connection->prepare(
+//        "DELETE FROM `user` WHERE id=:id;"
+//    );
+//    $deleteUser->bindValue('id', $_GET['id']);
+//
+//    $deleteUser->execute();
+//    header('Location: /');
+//    exit;
+//}
+//?>
 
-require_once 'includes.php';
+<!--//prof version-->
+<?php
+
+require_once 'include.php';
 
 if (strtolower($_SERVER['REQUEST_METHOD']) !== 'post') {
     echo '<h3>La méthode n\'est pas autorisé</h3>';
@@ -26,3 +35,4 @@ if (!$query->execute()) {
 
 header('Location: /');
 exit;
+?>

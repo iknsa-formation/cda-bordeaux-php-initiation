@@ -1,6 +1,6 @@
 <?php
 
-require_once 'includes.php';
+require_once 'include.php';
 
 if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
     $newUser = $connection->prepare(
@@ -25,10 +25,6 @@ if (mb_strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
 <?php
 require_once 'template_head.php';
 ?>
-
 <?php
-require_once 'user-form.php';
+require_once 'template_form.php';
 ?>
-
-</body>
-</html>
