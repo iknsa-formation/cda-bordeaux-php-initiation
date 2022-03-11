@@ -8,6 +8,12 @@ $users = $connection
     ->query($sql)
     ->fetchAll(PDO::FETCH_ASSOC);
 
+$sqlProduct = 'SELECT * FROM `product` ORDER BY `id` DESC LIMIT 5';
+
+$products = $connection
+    ->query($sqlProduct)
+    ->fetchAll(PDO::FETCH_ASSOC);
+
 /**
  * @todo Edit user
  * @todo Delete User
@@ -46,6 +52,31 @@ require_once 'template_head.php';
             </form>
         </td>
     </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Selling Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($products as $product): ?>
+        <tr>
+            <td><?= $product['id'] ?></td>
+            <td><?= $product['name'] ?></td>
+            <td><?= $product['selling_price'] ?></td>
+            <td>
+                <a href="/product-detail.php?id=<?= $product['id'] ?>">detail</a>
+            </td>
+        </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
