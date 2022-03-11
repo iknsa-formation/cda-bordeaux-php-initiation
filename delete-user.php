@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by iKNSA.
- * User: Khalid Sookia <khalidsookia@gmail.com>
- * Date: 11/03/2022
- * Time: 10:53
- */
 
 require_once 'includes.php';
 
