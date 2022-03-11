@@ -8,6 +8,11 @@ $users = $connection
     ->query($sql)
     ->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = 'SELECT * FROM `product` ORDER BY `id` DESC LIMIT 5';
+$products = $connection
+    ->query($sql)
+    ->fetchAll(PDO::FETCH_ASSOC);
+
 /**
  * @todo Edit user
  * @todo Delete User
@@ -33,19 +38,43 @@ require_once 'template_head.php';
     </thead>
     <tbody>
     <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?= $user['id'] ?></td>
+            <td><?= $user['name'] ?></td>
+            <td><?= $user['email'] ?></td>
+            <td>
+
+                <a href="/edit-user.php?id=<?= $user['id'] ?>">Edit user</a>
+
+                <form method="post" action="/delete-user.php?id=<?= $user['id'] ?>">
+                    <button>Delete</button>
+                </form>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<h3>Products</h3>
+
+<table>
+    <thead>
     <tr>
-        <td><?= $user['id'] ?></td>
-        <td><?= $user['name'] ?></td>
-        <td><?= $user['email'] ?></td>
-        <td>
-
-            <a href="/edit-user.php?id=<?= $user['id'] ?>">Edit user</a>
-
-            <form method="post" action="/delete-user.php?id=<?= $user['id'] ?>">
-                <button>Delete</button>
-            </form>
-        </td>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
     </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($products as $product): ?>
+        <tr>
+            <td><?= $product['id'] ?></td>
+            <td><?= $product['name'] ?></td>
+            <td><?= $product['selling_price'] ?></td>
+            <td>
+                <a href="/view-product.php?id=<?= $product['id'] ?>">Details</a>
+            </td>
+        </tr>
     <?php endforeach; ?>
     </tbody>
 </table>
